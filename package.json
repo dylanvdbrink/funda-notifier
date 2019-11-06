@@ -1,0 +1,30 @@
+{
+    "name": "funda-notifier",
+    "version": "1.0.0",
+    "description": "Script to get funda listings and send a push notification",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dylanvdbrink/funda-notifier.git"
+    },
+    "keywords": [
+        "funda",
+        "notifier",
+        "push",
+        "listings"
+    ],
+    "author": "Dylan van den Brink",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dylanvdbrink/funda-notifier/issues"
+    },
+    "homepage": "https://github.com/dylanvdbrink/funda-notifier#readme",
+    "dependencies": {
+        "log4js": "^5.3.0",
+        "pushover-notifications": "^1.2.1",
+        "rss-to-json": "^1.0.5"
+    }
+}
