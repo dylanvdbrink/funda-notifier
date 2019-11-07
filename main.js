@@ -2,6 +2,17 @@ const feed = require('rss-to-json');
 const fs = require('fs');
 const pushover = require('pushover-notifications');
 const log4js = require('log4js');
+const YAML = require('yaml');
+
+// Get config
+const configFile = fs.readFileSync('./config.yml', 'utf8')
+const config = YAML.parse(configFile);
+
+for (let a in config) {
+    let query = config[a];
+    notifyForFundaListings(a, query.type, query.city, query.minPrice, query.maxPrice, query.maxRange);
+}
+
 
 // Configure pushover
 var p = new pushover({
@@ -19,8 +30,8 @@ log4js.configure({
 });
 const logger = log4js.getLogger();
 
-function notifyForFundaListings (type, city, minPrice, maxPrice, amountKms) {
-    feed.load(`http://partnerapi.funda.nl/feeds/Aanbod.svc/rss/?type=${type}&zo=/${city}/${minPrice}-${maxPrice}/+${amountKms}/sorteer-datum-af/`, function(err, rss) {   
+function notifyForFundaListings (title, type, city, minPrice, maxPrice, maxRange) {
+    feed.load(`http://partnerapi.funda.nl/feeds/Aanbod.svc/rss/?type=${type}&zo=/${city}/${minPrice}-${maxPrice}/+${maxRange}/sorteer-datum-af/`, function(err, rss) {   
         if (!err) {
             let items = rss.items;
             let dir = './data/';
@@ -40,7 +51,7 @@ function notifyForFundaListings (type, city, minPrice, maxPrice, amountKms) {
                         space.substr(2, space.length) + '\n' +
                         '€' + item.description.match(amountRegex);
                     p.send({
-                        title: 'Funda Notifier',
+                        title: 'Funda: ' + title,
                         message: message,
                         sound: 'magic',
                         priority: 0
@@ -61,5 +72,3 @@ function notifyForFundaListings (type, city, minPrice, maxPrice, amountKms) {
         }
     });
 }
-
-notifyForFundaListings('koop', 'amsterdam', '10000', '500000', '1km');

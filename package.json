@@ -25,6 +25,7 @@
     "dependencies": {
         "log4js": "^5.3.0",
         "pushover-notifications": "^1.2.1",
-        "rss-to-json": "^1.0.5"
+        "rss-to-json": "^1.0.5",
+        "yaml": "^1.7.2"
     }
 }

@@ -1,0 +1,6 @@
+Dichtbij Amsterdam:
+  type: koop
+  city: amsterdam
+  minPrice: 10000
+  maxPrice: 500000
+  maxRange: 1km
