@@ -1,0 +1,2 @@
+0 * * * * node /funda-notifier/main.js /funda-notifier/config.yml /funda-notifier/data/ > /var/log/cron.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.
