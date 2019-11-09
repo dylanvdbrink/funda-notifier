@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: ./.github/workflows/nodejs
+    - uses: .github/workflows/nodejs.yml
     - name: Publish to Registry
       uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
