@@ -65,7 +65,9 @@ function notifyForFundaListings (title, type, city, minPrice, maxPrice, maxRange
                         title: 'Funda: ' + title,
                         message: message,
                         sound: 'magic',
-                        priority: 0
+                        priority: 0,
+                        url: item.link,
+                        url_title: 'Open link'
                     }, function(err, result) {
                         if (err) {
                             logger.error('Error while sending pushover request');
