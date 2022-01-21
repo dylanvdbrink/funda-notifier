@@ -23,7 +23,7 @@
     },
     "homepage": "https://github.com/dylanvdbrink/funda-notifier#readme",
     "dependencies": {
-        "log4js": "^5.3.0",
+        "log4js": "^6.4.0",
         "pushover-notifications": "^1.2.1",
         "rss-to-json": "^1.0.5",
         "yaml": "^1.7.2"
